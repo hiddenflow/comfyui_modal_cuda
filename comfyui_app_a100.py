@@ -1,8 +1,5 @@
 import modal
 
-# Tentukan GPU yang kompatibel dengan FlashAttention-2
-GPU_CONFIG = modal.gpu.L40S()  # atau modal.gpu.A10G untuk RTX 3090
-
 # Buat environment Modal dengan dependensi yang diperlukan
 image = (
     modal.Image.debian_slim(python_version="3.12")
@@ -30,7 +27,7 @@ image = (
 
 app = modal.App("flash-attention", image=image)
 
-@app.function(gpu=GPU_CONFIG, timeout=600)
+@app.function(gpu="L40S", timeout=600)
 def test_flash_attention():
     import torch
     from flash_attn import flash_attn_func
