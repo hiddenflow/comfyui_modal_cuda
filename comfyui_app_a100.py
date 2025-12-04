@@ -19,7 +19,7 @@ image = (
         "dpkg -i cuda-keyring_1.1-1_all.deb",
         "apt-get update",
         "apt-get install -y cuda-toolkit-12-9",
-        "rm cuda-keyring_1.0-1_all.deb"
+        "rm cuda-keyring_1.1-1_all.deb"
     )
     # Instal FlashAttention-2 dari source
     .run_commands(
